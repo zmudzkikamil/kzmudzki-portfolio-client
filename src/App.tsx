@@ -1,15 +1,24 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import "./App.css";
+import { classNames } from "./utils/classNames";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const buttonStyles = classNames({
+    "bg-black flex": true,
+    "bg-black p-4": false,
+  });
+  console.log(buttonStyles);
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+        <a
+          href="https://vitejs.dev"
+          target="_blank"
+          rel="noreferrer"
+          className=""
+        >
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank" rel="noreferrer">
