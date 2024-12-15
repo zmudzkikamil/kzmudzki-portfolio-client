@@ -8,7 +8,6 @@ export const Layout: React.FC = () => {
     <div>
       <Navigation></Navigation>
       <main>
-        {/* Render child routes */}
         <Outlet />
       </main>
       <Footer></Footer>
