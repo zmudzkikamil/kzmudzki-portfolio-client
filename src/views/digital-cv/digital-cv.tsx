@@ -1,5 +1,7 @@
 interface Props {}
 
-export const DigitalCv: React.FC<Props> = () => {
+const DigitalCv: React.FC<Props> = () => {
   return <div>digital cv</div>;
 };
+
+export default DigitalCv;

@@ -17,11 +17,11 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 export const createAppRouter = (queryClient: QueryClient) =>
   createBrowserRouter([
     {
-      path: paths["about-me"].path,
       element: <Layout />,
       children: [
         {
           path: paths["about-me"].path,
+          index: true,
           lazy: () =>
             import("../views/about-me/about-me").then(convert(queryClient)),
         },
