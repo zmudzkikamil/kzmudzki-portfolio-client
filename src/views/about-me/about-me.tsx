@@ -1,5 +1,5 @@
 interface Props {}
 
 export const AboutMe: React.FC<Props> = () => {
-  return <div></div>;
+  return <div>about me</div>;
 };
