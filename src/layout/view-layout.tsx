@@ -8,9 +8,13 @@ interface Props {
 
 export const ViewLayout: React.FC<Props> = ({ mode, children }) => {
   const viewStyle = classNames({
-    container: true,
+    "h-[1200px]": true,
     "bg-primary": mode === "primary",
     "bg-secondary": mode === "secondary",
   });
-  return <div className={viewStyle}>{children}</div>;
+  return (
+    <div className={viewStyle}>
+      <section className="">{children}</section>
+    </div>
+  );
 };
