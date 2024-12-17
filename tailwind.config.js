@@ -9,9 +9,16 @@ export default {
       "secondary-medium": "#ECF5EA",
       "secondary-dark": "#E4EEE6",
       grey: "#A0BCB3",
+      "grey-light": "#C5E5DB",
       "grey-medium": "#98ADAA",
+      white: "#FFFFFF",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        nunito: ["Nunito", "sans-serif"], // Add Nunito
+        zendots: ['"Zen Dots"', "cursive"], // Add Zen Dots
+      },
+    },
   },
   plugins: [],
 };
