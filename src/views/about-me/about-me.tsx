@@ -1,4 +1,5 @@
 import { ViewLayout } from "@/layout/view-layout";
+import Button from "@/shared/components/form/button";
 import {
   Header,
   HeaderTitle,
@@ -18,6 +19,10 @@ const AboutMe: React.FC<Props> = () => {
           <br /> I'm Kamil Żmudzki
         </HeaderTitle>
         <HeaderSubtitle text="Software Engineer, Frontend Developer, AWS certified associate" />
+        <div className="flex gap-4">
+          <Button label="Contact me" onClick={() => {}} />
+          <Button label="Contact me" onClick={() => {}} />
+        </div>
       </Header>
       about me
     </ViewLayout>

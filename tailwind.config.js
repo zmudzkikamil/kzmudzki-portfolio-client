@@ -12,11 +12,13 @@ export default {
       "grey-light": "#C5E5DB",
       "grey-medium": "#98ADAA",
       white: "#FFFFFF",
+      black: "#141213",
+      cta: "#F3EBE3",
     },
     extend: {
       fontFamily: {
-        nunito: ["Nunito", "sans-serif"], // Add Nunito
-        zendots: ['"Zen Dots"', "cursive"], // Add Zen Dots
+        nunito: ["Nunito", "sans-serif"],
+        zendots: ['"Zen Dots"', "cursive"],
       },
     },
   },
