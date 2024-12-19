@@ -14,7 +14,7 @@ export const ViewLayout: React.FC<Props> = ({ mode, children }) => {
   });
   return (
     <div className={viewStyle}>
-      <section className="container 2xl:max-w-[1280px] h-full mx-auto px-6">
+      <section className="max-w-[1280px] h-full mx-auto md:px-8 xl:px-12 px-4">
         {children}
       </section>
     </div>
