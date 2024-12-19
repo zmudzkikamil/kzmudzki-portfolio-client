@@ -4,7 +4,7 @@ interface Props {
 
 export const HeaderSubtitle: React.FC<Props> = ({ text }) => {
   return (
-    <p className="text-3xl md:text-xl font-light max-w-[570px] md:max-w-[400px] text-secondary-dark">
+    <p className="lg:text-3xl text-lg font-light lg:max-w-[570px] max-w-[350px] text-secondary-dark text-center sm:text-left">
       {text}
     </p>
   );
