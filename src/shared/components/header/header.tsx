@@ -3,5 +3,9 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ children }) => {
-  return <header className="text-secondary [&>*]:z-10">{children}</header>;
+  return (
+    <header className="text-secondary [&>*]:z-10 h-[26.25rem]">
+      {children}
+    </header>
+  );
 };

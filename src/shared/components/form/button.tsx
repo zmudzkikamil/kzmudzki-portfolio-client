@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   testId,
 }) => {
   const buttonStyle = classNames({
-    " py-3 px-16 rounded-full bg-cta text-2xl leading-none text-black font-bold":
+    "py-3 px-14 lg:px-16 rounded-full bg-cta hover:bg-white text:xl lg:text-2xl leading-none text-black font-bold":
       true,
     "bg-grey text-white": disabled,
     [className as string]: !!className,

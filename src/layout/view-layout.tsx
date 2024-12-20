@@ -2,7 +2,7 @@ import { Variant } from "@/shared/types/Variant";
 import { classNames } from "@/utils/classNames";
 
 interface Props {
-  mode: Exclude<Variant, "grey">;
+  mode: Exclude<Variant, "grey" | "cta">;
   children: React.ReactNode;
 }
 
