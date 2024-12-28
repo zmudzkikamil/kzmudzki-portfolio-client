@@ -2,8 +2,19 @@ import { ViewLayout } from "@/layout/view-layout";
 import { AboutMeHeader } from "./components/about-me-header";
 import { MainContent } from "@/shared/components/main-content";
 import { Title } from "@/shared/components/title";
+import { QueryClient } from "@tanstack/react-query";
+import { getAboutMeOptions } from "@/api/queries/about-me";
 
 interface Props {}
+
+export const clientLoader = (queryClient: QueryClient) => async () => {
+  const query = getAboutMeOptions();
+
+  return (
+    queryClient.getQueryData(query.queryKey) ??
+    (await queryClient.fetchQuery(query))
+  );
+};
 
 const AboutMe: React.FC<Props> = () => {
   return (
