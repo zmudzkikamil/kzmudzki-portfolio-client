@@ -31,12 +31,12 @@ export const AboutMeHeader: React.FC<Props> = () => {
           <Button label="Contact me" onClick={onClick} />
           <div className="flex justify-center sm:justify-start gap-6 lg:gap-10 xl:gap-12">
             <LinkBbutton
-              icon="ri-github-fill"
+              icon="fa-brands fa-github"
               url="https://github.com/zmudzkikamil"
               variant="cta"
             />
             <LinkBbutton
-              icon="ri-linkedin-box-fill"
+              icon="fa-brands fa-linkedin"
               url="https://www.linkedin.com/in/k-zmudzki/"
               variant="cta"
             />
@@ -44,7 +44,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
         </div>
         <img
           src="src/assets/user.png"
-          alt="user"
+          alt="user image"
           className="absolute hidden sm:block right-0 top-10 md:top-2 max-h-[250px] md:max-h-[320px] lg:max-h-[350px]"
         />
       </div>

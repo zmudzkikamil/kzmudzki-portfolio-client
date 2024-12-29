@@ -8,7 +8,7 @@ interface Props {
 
 export const ViewLayout: React.FC<Props> = ({ mode, children }) => {
   const viewStyle = classNames({
-    "h-[1200px] relative overflow-x-clip overflow-y-visible": true,
+    "relative overflow-x-clip overflow-y-visible": true,
     "bg-primary": mode === "primary",
     "bg-secondary": mode === "secondary",
   });

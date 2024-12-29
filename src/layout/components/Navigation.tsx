@@ -6,7 +6,7 @@ interface Props {}
 
 export const Navigation: React.FC<Props> = () => {
   return (
-    <nav className="flex items-center justify-between h-20 w-full bg-primary">
+    <nav className="sticky top-0 flex items-center justify-between h-20 w-full bg-primary z-50">
       <Logo />
       <div className="flex gap-8 text-lg pr-6">
         <NavItem href={paths["about-me"].path} label="About me" />

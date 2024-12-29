@@ -24,11 +24,11 @@ export const LinkBbutton: React.FC<Props> = ({
 
   const buttonSize: Record<ButtonSize, string> = {
     small: "text-2xl leading-none size-6",
-    default: "text-5xl lg:text-6xl leading-none size-10 lg:size-12",
+    default: "text-5xl lg:text-6xl leading-none size-12 lg:size-14",
     large: "text-[64px] leading-none size-16",
   };
   const buttonStyle = classNames({
-    "flex items-center justify-center text-5": true,
+    "flex items-center justify-center": true,
     "text-cta hover:text-white": variant === "cta",
     "text-primary hover:text-primary-light": variant === "primary",
     "text-secondary hover:text-white": variant === "secondary",
