@@ -19,7 +19,7 @@ export const Footer: React.FC<Props> = () => {
   if (pathname === paths.contact.path) {
     return (
       <footer className="h-[10rem] w-full flex items-center justify-center">
-        <FooterSignature />
+        <FooterSignature className="text-center" />
       </footer>
     );
   }
