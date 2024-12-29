@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-export const LinkBbutton: React.FC<Props> = ({
+export const LinkButton: React.FC<Props> = ({
   variant,
   icon,
   url,
@@ -24,7 +24,8 @@ export const LinkBbutton: React.FC<Props> = ({
 
   const buttonSize: Record<ButtonSize, string> = {
     small: "text-2xl leading-none size-6",
-    default: "text-5xl lg:text-6xl leading-none size-12 lg:size-14",
+    default:
+      "text-[40px] sm:text-5xl lg:text-6xl leading-none size-10 sm:size-12 lg:size-14",
     large: "text-[64px] leading-none size-16",
   };
   const buttonStyle = classNames({

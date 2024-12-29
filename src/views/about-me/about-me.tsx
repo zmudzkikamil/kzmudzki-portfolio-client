@@ -29,7 +29,7 @@ const AboutMe: React.FC<Props> = () => {
       <AboutMeHeader />
       <MainContent>
         <Title title="About me" />
-        <div className="grid grid-cols-[auto,1fr] sm:grid-cols-[auto,auto,1fr] gap-x-6 text-base sm:text-xl">
+        <div className="grid grid-cols-[auto,1fr] sm:grid-cols-[auto,auto,1fr] gap-x-10 text-base sm:text-xl">
           {data.map((item) => (
             <AboutMeItem key={item.id} item={item} />
           ))}
