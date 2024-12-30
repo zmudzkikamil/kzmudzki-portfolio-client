@@ -13,7 +13,7 @@ export const Company: React.FC<Props> = ({ company }) => {
         <h2 className="font-bold text-3xl leading-none">{company.company}</h2>
         <p className="text-black/70 mt-3">{company.period}</p>
       </div>
-      {company.positions.map((position, index) => (
+      {company.positions.toReversed().map((position, index) => (
         <>
           <div className="flex flex-col items-center">
             <div className="flex items-center size-4 rounded-full bg-primary shrink-0"></div>
