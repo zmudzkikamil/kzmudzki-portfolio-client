@@ -1,6 +1,6 @@
 import { api } from "../api";
-import { Experience } from "../types/experience";
+import { ExperienceCompany } from "../types/experience";
 
-export const getExperience = async (): Promise<Experience[]> => {
+export const getExperience = async (): Promise<ExperienceCompany[]> => {
   return api.get("/experience");
 };

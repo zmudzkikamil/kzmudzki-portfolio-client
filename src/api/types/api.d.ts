@@ -162,6 +162,7 @@ export interface components {
     Experience: {
       id: string;
       company: string;
+      period: string;
       positions: components["schemas"]["Position"][];
     };
     Position: {

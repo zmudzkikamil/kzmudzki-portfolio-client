@@ -14,9 +14,7 @@ export const ViewLayout: React.FC<Props> = ({ mode, children }) => {
   });
   return (
     <div className={viewStyle}>
-      <section>
-        <Container>{children}</Container>
-      </section>
+      <Container>{children}</Container>
     </div>
   );
 };
