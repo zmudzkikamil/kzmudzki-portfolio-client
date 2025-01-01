@@ -10,4 +10,4 @@ export type ExperienceCompany = Omit<
 > & {
   company: CompanyName;
 };
-export type Position = components["schemas"]["Position"];
+export type ExperiencePosition = components["schemas"]["Position"];
