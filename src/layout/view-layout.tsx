@@ -9,8 +9,10 @@ interface Props {
 
 export const ViewLayout: React.FC<Props> = ({ mode, children }) => {
   const viewStyle = classNames({
-    "bg-primary": mode === "primary",
-    "bg-secondary": mode === "secondary",
+    "bg-[url('src/assets/primary-bg.png')] bg-contain bg-no-repeat bg-center":
+      mode === "primary",
+    "bg-[url('src/assets/secondary-bg.png')] bg-contain bg-no-repeat bg-center":
+      mode === "secondary",
   });
   return (
     <div className={viewStyle}>
