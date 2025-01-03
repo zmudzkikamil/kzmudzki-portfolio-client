@@ -12,7 +12,7 @@ export const Badge: React.FC<BadgeProps> = ({ label, variant }) => {
       case "grey":
         return "text-white bg-grey";
       case "primary":
-        return "text-black bg-primary";
+        return "text-white bg-primary";
       case "secondary":
         return "text-primary bg-secondary";
       default:
@@ -21,7 +21,7 @@ export const Badge: React.FC<BadgeProps> = ({ label, variant }) => {
   };
 
   const badgeStyle = classNames({
-    "px-4 py-2 rounded font-extrabold text-base leading-none tracking-wider":
+    "px-4 py-2 rounded font-extrabold text-sm sm:text-base leading-none tracking-wider text-center min-w-min":
       true,
     [getColor(variant)]: true,
   });

@@ -8,32 +8,65 @@ import {
 } from "@/api/queries/experience";
 import { QueryClient } from "@tanstack/react-query";
 import { Company } from "./components/company";
+import {
+  getKnowledgeOptions,
+  useGetKnowledgeQuery,
+} from "@/api/queries/knowledge";
+import { Section } from "@/shared/components/section";
+import { KnowledgeItem } from "./components/knowledge-item";
+import { getCertsOptions, useGetCertsQuery } from "@/api/queries/certs";
 
 interface Props {}
 
 export const clientLoader = (queryClient: QueryClient) => async () => {
-  const query = getExperienceOptions();
+  const experienceQuery = getExperienceOptions();
+  const knowledgeQuery = getKnowledgeOptions();
+  const certsQuery = getCertsOptions();
 
-  return (
-    queryClient.getQueryData(query.queryKey) ??
-    (await queryClient.fetchQuery(query))
-  );
+  const experienceData =
+    queryClient.getQueryData(experienceQuery.queryKey) ??
+    (await queryClient.fetchQuery(experienceQuery));
+
+  const knowledgeData =
+    queryClient.getQueryData(knowledgeQuery.queryKey) ??
+    (await queryClient.fetchQuery(knowledgeQuery));
+
+  const certsData =
+    queryClient.getQueryData(certsQuery.queryKey) ??
+    (await queryClient.fetchQuery(certsQuery));
+
+  return { experienceData, knowledgeData, certsData };
 };
 
 const DigitalCv: React.FC<Props> = () => {
-  const { data, isLoading } = useGetExperienceQuery();
+  const { data: experience, isLoading: experienceIsLoading } =
+    useGetExperienceQuery();
+  const { data: knowledge, isLoading: knowledgeIsLoading } =
+    useGetKnowledgeQuery();
+  const { data: certs, isLoading: certsIsLoading } = useGetCertsQuery();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (!data) return null;
+  if (experienceIsLoading || knowledgeIsLoading || certsIsLoading)
+    return <div>Loading...</div>;
+  if (!experience || !knowledge || !certs) return null;
 
   return (
     <ViewLayout mode="secondary">
       <CvHeader />
       <MainContent>
-        <Title title="Experience" />
-        {data.map((company) => (
-          <Company key={company.id} company={company} />
-        ))}
+        <Section id="experience">
+          <Title title="Experience" />
+          {experience.map((company) => (
+            <Company key={company.id} company={company} />
+          ))}
+        </Section>
+        <Section id="skills">
+          <Title title="Skills" />
+          <div className="flex flex-wrap gap-4 lg:gap-9 justify-center">
+            {knowledge.map((item) => (
+              <KnowledgeItem key={item.id} knowledgeItem={item} />
+            ))}
+          </div>
+        </Section>
       </MainContent>
     </ViewLayout>
   );

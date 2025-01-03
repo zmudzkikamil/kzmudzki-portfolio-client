@@ -18,7 +18,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
   return (
     <Header className="h-[26.25rem]">
       {/* Tailwind arbitrary values used here because of specific shape of header. */}
-      <div className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[399px] max-w-[1947px] bg-[url('src/assets/wave.svg')] bg-cover bg-center"></div>
+      <div className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[399px] max-w-[1947px] bg-[url('src/assets/wave-header.svg')] bg-cover bg-center"></div>
       <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-5 relative">
         <HeaderTitle>
           <span className="block leading-tight sm:leading-snug tracking-wide">
