@@ -247,6 +247,7 @@ export interface components {
       name: string;
       description: string;
       dateIssued: number;
+      icon: string;
       expirationDate?: number;
     };
   };

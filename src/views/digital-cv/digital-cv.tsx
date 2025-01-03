@@ -15,6 +15,7 @@ import {
 import { Section } from "@/shared/components/section";
 import { KnowledgeItem } from "./components/knowledge-item";
 import { getCertsOptions, useGetCertsQuery } from "@/api/queries/certs";
+import { Certification } from "./components/certification";
 
 interface Props {}
 
@@ -55,15 +56,25 @@ const DigitalCv: React.FC<Props> = () => {
       <MainContent>
         <Section id="experience">
           <Title title="Experience" />
-          {experience.map((company) => (
-            <Company key={company.id} company={company} />
-          ))}
+          <div className="flex flex-col gap-8">
+            {experience.map((company) => (
+              <Company key={company.id} company={company} />
+            ))}
+          </div>
         </Section>
         <Section id="skills">
           <Title title="Skills" />
           <div className="flex flex-wrap gap-4 lg:gap-9 justify-center">
             {knowledge.map((item) => (
               <KnowledgeItem key={item.id} knowledgeItem={item} />
+            ))}
+          </div>
+        </Section>
+        <Section id="certifications">
+          <Title title="Certs & Diplomas" />
+          <div className="flex flex-wrap gap-4 lg:gap-9 justify-center">
+            {certs.map((cert) => (
+              <Certification key={cert.id} cert={cert} />
             ))}
           </div>
         </Section>

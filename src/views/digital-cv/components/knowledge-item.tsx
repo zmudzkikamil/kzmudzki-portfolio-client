@@ -8,7 +8,7 @@ interface Props {
 
 export const KnowledgeItem: React.FC<Props> = ({ knowledgeItem }) => {
   return (
-    <div className="flex flex-col flex-1 items-center gap-16 h-[41rem] min-w-[20rem] p-3.5 pt-20 bg-secondary-dark rounded-lg">
+    <div className="flex flex-col flex-1 items-center gap-16 h-[41rem] min-w-[20rem] p-3.5 pt-20 bg-secondary-dark rounded-2xl">
       <h3 className="text-4xl font-bold capitalize">
         {knowledgeItem.category}
       </h3>

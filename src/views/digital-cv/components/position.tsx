@@ -24,10 +24,10 @@ export const Position: React.FC<Props> = ({
           </>
         )}
       </div>
-      <div key={position.id} className="col-start-2 mb-10 flex flex-col gap-2">
+      <div key={position.id} className="col-start-2 mb-10 flex flex-col gap-3">
         <h3 className="font-bold text-xl leading-none">{position.title}</h3>
         <p className="text-base text-black/70">{position.period}</p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {position.skills.map((skill, index) => (
             <Badge key={index} label={skill} variant="grey" />
           ))}
