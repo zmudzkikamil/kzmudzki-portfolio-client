@@ -3,6 +3,8 @@
 # <p align="center">Kamil Żmudzki</p2>
 
 <p align="center"><em>Portfolio App and Digital CV - React.js, TypeScript, React Query (Tanstack), Figma</em><br>
+ 
+  connected with server portfolio project on nest.js
   
  ## Project Status
 
