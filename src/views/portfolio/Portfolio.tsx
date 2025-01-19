@@ -33,7 +33,7 @@ const Portfolio: React.FC<Props> = () => {
         <HeaderTitle>Portfolio</HeaderTitle>
       </Header>
       <MainContent>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-40">
           {data.map((category) => (
             <ProjectsCategory
               key={category.category}

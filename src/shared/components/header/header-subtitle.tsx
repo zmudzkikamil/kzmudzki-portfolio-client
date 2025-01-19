@@ -11,9 +11,5 @@ export const HeaderSubtitle: React.FC<Props> = ({ text, className }) => {
       true,
     [className as string]: !!className,
   });
-  return (
-    <p className="lg:text-2xl text-lg font-light text-secondary-dark text-center sm:text-left">
-      {text}
-    </p>
-  );
+  return <p className={subtitleStyle}>{text}</p>;
 };

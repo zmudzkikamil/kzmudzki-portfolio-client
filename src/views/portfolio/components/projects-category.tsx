@@ -1,4 +1,5 @@
 import { Category, Project } from "@/api/types/projects";
+import { ProjectItem } from "./project-item";
 
 interface Props {
   projects: Project[];
@@ -17,14 +18,13 @@ export const ProjectsCategory: React.FC<Props> = ({ projects, category }) => {
     }
   };
   return (
-    <div>
-      <h2>{getCategoryTitle(category)}</h2>
-      <div className="flex gap-4">
+    <div className="flex flex-col gap-16 text-secondary">
+      <h2 className="text-3xl lg:text-4xl font-bold">
+        {getCategoryTitle(category)}
+      </h2>
+      <div className="flex flex-wrap items-center justify-center xl:justify-between gap-16 xl:gap-10">
         {projects.map((project) => (
-          <div className="bg-secondary rounded-xl" key={project.id}>
-            <h3>{project.title}</h3>
-            <img src={project.image} alt={project.title} />
-          </div>
+          <ProjectItem key={project.id} project={project} />
         ))}
       </div>
     </div>
