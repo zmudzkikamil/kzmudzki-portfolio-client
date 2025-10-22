@@ -16,10 +16,10 @@ export const AboutMeHeader: React.FC<Props> = () => {
     navigate("/contact");
   };
   return (
-    <Header className="h-[26.25rem]">
+    <Header>
       {/* Tailwind arbitrary values used here because of specific shape of header. */}
-      <div className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[399px] max-w-[1947px] bg-[url('src/assets/wave-header.svg')] bg-cover bg-center"></div>
-      <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-5 relative">
+      <div className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[480px] max-w-[1947px] bg-[url('src/assets/wave-header.svg')] bg-cover bg-center"></div>
+      <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-5 relative pt-20 pb-10 md:pb-16">
         <HeaderTitle>
           <span className="block leading-tight sm:leading-snug tracking-wide">
             Hello,
@@ -48,7 +48,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
         <img
           src="src/assets/user.png"
           alt="user image"
-          className="absolute hidden sm:block right-0 top-10 md:top-4 max-h-[250px] md:max-h-[320px] lg:max-h-[350px]"
+          className="absolute hidden sm:block mt-20 right-0 top-10 md:top-4 max-h-[250px] md:max-h-[320px] lg:max-h-[350px]"
         />
       </div>
     </Header>

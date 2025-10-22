@@ -29,7 +29,7 @@ const Portfolio: React.FC<Props> = () => {
 
   return (
     <ViewLayout mode="primary">
-      <Header className="pt-8">
+      <Header className="pt-28">
         <HeaderTitle>Portfolio</HeaderTitle>
       </Header>
       <MainContent>
