@@ -24,17 +24,13 @@ export const clientLoader = (queryClient: QueryClient) => async () => {
   const knowledgeQuery = getKnowledgeOptions();
   const certsQuery = getCertsOptions();
 
-  const experienceData =
-    queryClient.getQueryData(experienceQuery.queryKey) ??
-    (await queryClient.fetchQuery(experienceQuery));
+  const results = await Promise.all([
+    queryClient.ensureQueryData(experienceQuery),
+    queryClient.ensureQueryData(knowledgeQuery),
+    queryClient.ensureQueryData(certsQuery),
+  ]);
 
-  const knowledgeData =
-    queryClient.getQueryData(knowledgeQuery.queryKey) ??
-    (await queryClient.fetchQuery(knowledgeQuery));
-
-  const certsData =
-    queryClient.getQueryData(certsQuery.queryKey) ??
-    (await queryClient.fetchQuery(certsQuery));
+  const [experienceData, knowledgeData, certsData] = results;
 
   return { experienceData, knowledgeData, certsData };
 };

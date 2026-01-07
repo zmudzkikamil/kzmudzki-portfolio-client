@@ -10,7 +10,7 @@ export const projectsQueryOptions = () => {
   });
 };
 
-export const projectQueryOptions = (id: string) => {
+export const getProjectQueryOptions = (id: string) => {
   return queryOptions({
     queryKey: ["projects", id],
     queryFn: () => getProject(id),
@@ -36,7 +36,7 @@ export const useGetProjectsQuery = () => {
 };
 
 export const useGetProjectQuery = (id: string) => {
-  return useQuery<DetailedProject, Error>(projectQueryOptions(id));
+  return useQuery<DetailedProject, Error>(getProjectQueryOptions(id));
 };
 
 export const useGetCategoryOrientedProjectsQuery = () => {
