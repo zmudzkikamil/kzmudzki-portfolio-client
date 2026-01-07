@@ -19,12 +19,10 @@ export const AboutMeHeader: React.FC<Props> = () => {
     <Header>
       {/* Tailwind arbitrary values used here because of specific shape of header. */}
       <div className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[480px] max-w-[1947px] bg-[url('src/assets/wave-header.svg')] bg-cover bg-center"></div>
-      <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-5 relative pt-20 pb-10 md:pb-16">
+      <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-7 relative pt-20 pb-10 md:pb-16">
         <HeaderTitle>
-          <span className="block leading-tight sm:leading-snug tracking-wide">
-            Hello,
-          </span>
-          <span className="block tracking-wide">I'm Kamil Żmudzki</span>
+          <span className="block leading-tight sm:leading-snug">Hello,</span>
+          <span className="block">I'm Kamil Żmudzki</span>
         </HeaderTitle>
         <HeaderSubtitle
           text="Software Engineer, Frontend Developer, AWS certified associate"

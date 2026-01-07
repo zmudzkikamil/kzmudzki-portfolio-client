@@ -2,7 +2,8 @@ import { components } from "./api";
 
 export type CompanyName =
   | "Fujitsu Technology Solutions"
-  | "Freelancer Web Development";
+  | "Freelancer Web Development"
+  | "Deloitte";
 
 export type ExperienceCompany = Omit<
   components["schemas"]["Experience"],

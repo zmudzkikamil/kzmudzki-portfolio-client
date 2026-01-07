@@ -7,6 +7,8 @@ interface Props {
 export const CompanyLogo: React.FC<Props> = ({ companyName }) => {
   const renderLogo = (companyName: CompanyName) => {
     switch (companyName) {
+      case "Deloitte":
+        return <img src="/src/assets/deloitte.svg" alt="Deloitte logo" />;
       case "Fujitsu Technology Solutions":
         return (
           <img
