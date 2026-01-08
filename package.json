@@ -19,11 +19,14 @@
     "@tanstack/react-query": "^5.62.3",
     "@tanstack/react-query-devtools": "^5.62.3",
     "axios": "^1.7.9",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.1.2",
     "react-helmet-async": "^2.0.5",
-    "react-router": "^7.0.2"
+    "react-router": "^7.0.2",
+    "swiper": "^12.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

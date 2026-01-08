@@ -7,6 +7,8 @@ import { Header } from "@/shared/components/header/header";
 import { HeaderTitle } from "@/shared/components/header";
 import { MainContent } from "@/shared/components/main-content";
 import { Badge } from "@/shared/components/badge/badge";
+import SwiperScale from "./components/swiper";
+import EmblaCarousel from "./components/EmblaCarousel";
 
 export function clientLoader(queryClient: QueryClient) {
   return async function loader({ params }: { params: { projectId?: string } }) {
@@ -47,8 +49,8 @@ export default function Project() {
         </div>
       </Header>
       <MainContent>
-        <div className="flex flex-col gap-40">
-          <h1 className="text-4xl font-bold">{data.id}</h1>
+        <div className="h-200">
+          <EmblaCarousel slides={data.views} options={{ loop: true }} />
         </div>
       </MainContent>
     </ViewLayout>
