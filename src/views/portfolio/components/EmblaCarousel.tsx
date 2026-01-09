@@ -28,6 +28,7 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props;
+  console.log("slides", slides);
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
@@ -44,7 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
     tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
-      return slideNode.querySelector(".embla__slide__number") as HTMLElement;
+      return slideNode.querySelector(".embla__slide__media") as HTMLElement;
     });
   }, []);
 
@@ -87,6 +88,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           const scale = numberWithinRange(tweenValue, 0, 1).toString();
           const tweenNode = tweenNodes.current[slideIndex];
           tweenNode.style.transform = `scale(${scale})`;
+          tweenNode.style.opacity = `${scale * scale}`;
         });
       });
     },
@@ -109,12 +111,20 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenScale]);
 
   return (
-    <div className="embla">
+    <div className="embla  md:-mx-8 xl:-mx-12 -mx-4">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide) => (
-            <div className="embla__slide" key={slide.id}>
-              <div className="embla__slide__number">{slide.title}</div>
+            // add title and make it scalable too
+            <div
+              className="embla__slide basis-[85%] sm:basis-[45%] flex-shrink-0 flex-grow-0"
+              key={slide.id}
+            >
+              <img
+                className="embla__slide__media"
+                src={slide.image}
+                alt={slide.title}
+              />
             </div>
           ))}
         </div>
