@@ -112,10 +112,18 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       };
     });
   }, [slides]);
-  if (isReady) {
+  if (!isReady) {
     return (
-      <div className="flex justify-center items-center h-full">
-        <div className="max-h-[500px] aspect-[4/3] animate-pulse bg-grey-light/50"></div>
+      <div className="flex flex-col items-center justify-center gap-12 w-full scale-75 sm:scale-150">
+        {/* title skeleton */}
+        <div className="w-36 h-12 sm:w-24 sm:h-8 bg-secondary/15 animate-pulse rounded-lg" />
+
+        {/* carousel skeleton */}
+        <div className="flex gap-14 w-full flex-1">
+          <div className="hidden sm:block flex-1 aspect-[4/3] bg-secondary/15 animate-pulse rounded-2xl scale-90" />
+          <div className="flex-1 aspect-[4/3] bg-secondary/15 animate-pulse rounded-2xl scale-125" />
+          <div className="hidden sm:block flex-1 aspect-[4/3] bg-secondary/15 animate-pulse rounded-2xl scale-90" />
+        </div>
       </div>
     );
   }

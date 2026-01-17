@@ -48,22 +48,20 @@ export default function Project() {
         </div>
       </Header>
       <MainContent>
-        <div>
-          {data.views.length === 1 ? (
-            <div className="relative flex justify-center items-center h-full">
-              <h2 className=" absolute -top-[70px] left-0 right-0 text-center text-secondary text-3xl lg:text-4xl font-bold">
-                {data.views[0].title}
-              </h2>
-              <img
-                src={data.views[0].image}
-                alt={data.views[0].title}
-                className="aspect-[4/3] max-h-[500px] object-cover rounded-3xl"
-              />
-            </div>
-          ) : (
-            <EmblaCarousel slides={data.views} options={{ loop: true }} />
-          )}
-        </div>
+        {data.views.length === 1 ? (
+          <div className="relative flex justify-center items-center h-full">
+            <h2 className=" absolute -top-[70px] left-0 right-0 text-center text-secondary text-3xl lg:text-4xl font-bold">
+              {data.views[0].title}
+            </h2>
+            <img
+              src={data.views[0].image}
+              alt={data.views[0].title}
+              className="aspect-[4/3] max-h-[500px] object-cover rounded-3xl"
+            />
+          </div>
+        ) : (
+          <EmblaCarousel slides={data.views} options={{ loop: true }} />
+        )}
       </MainContent>
     </ViewLayout>
   );
