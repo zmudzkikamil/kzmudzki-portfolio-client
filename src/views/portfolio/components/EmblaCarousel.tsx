@@ -1,15 +1,10 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   EmblaCarouselType,
   EmblaEventType,
   EmblaOptionsType,
 } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons,
-} from "./EmblaCarouselArrowButtons";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 const TWEEN_FACTOR_BASE = 0.25;
@@ -30,18 +25,12 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props;
   console.log("slides", slides);
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [isReady, setIsReady] = useState(false);
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
-
-  const {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick,
-  } = usePrevNextButtons(emblaApi);
 
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
     tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
@@ -109,17 +98,50 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       .on("scroll", tweenScale)
       .on("slideFocus", tweenScale);
   }, [emblaApi, tweenScale]);
+  useEffect(() => {
+    let loaded = 0;
 
+    slides.forEach((slide) => {
+      const img = new Image();
+      img.src = slide.image;
+      img.onload = () => {
+        loaded += 1;
+        if (loaded === slides.length) {
+          setIsReady(true);
+        }
+      };
+    });
+  }, [slides]);
+  if (isReady) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <div className="max-h-[500px] aspect-[4/3] animate-pulse bg-grey-light/50"></div>
+      </div>
+    );
+  }
   return (
     <div className="embla  md:-mx-8 xl:-mx-12 -mx-4">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((slide) => (
+          {slides.map((slide, index) => (
             // add title and make it scalable too
             <div
-              className="embla__slide basis-[85%] sm:basis-[45%] flex-shrink-0 flex-grow-0"
+              className="relative basis-[85%] sm:basis-[55%] flex-shrink-0 flex-grow-0"
               key={slide.id}
             >
+              <h2
+                className={`
+    absolute -top-[70px] left-0 right-0 text-center text-secondary text-3xl lg:text-4xl font-bold
+    transition-all duration-300 ease-out
+    ${
+      index === selectedIndex
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-2 pointer-events-none"
+    }
+  `}
+              >
+                {slide.title}
+              </h2>
               <img
                 className="embla__slide__media"
                 src={slide.image}
@@ -131,11 +153,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className="embla__controls">
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
         <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             <DotButton
