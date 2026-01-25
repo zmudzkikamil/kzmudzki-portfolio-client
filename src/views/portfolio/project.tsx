@@ -48,7 +48,7 @@ export default function Project() {
         </div>
       </Header>
       <MainContent>
-        {data.views.length === 1 ? (
+        {data.views.length === 1 || data.views.length === 2 ? (
           <div className="relative flex justify-center items-center h-full">
             <h2 className=" absolute -top-[70px] left-0 right-0 text-center text-secondary text-3xl lg:text-4xl font-bold">
               {data.views[0].title}
