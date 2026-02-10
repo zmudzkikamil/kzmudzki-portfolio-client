@@ -95,7 +95,7 @@ export default function Project() {
           {data.improvements && data.improvements.length > 0 && (
             <div>
               <h2 className="text-2xl font-semibold text-secondary mb-4 md:mb-6">
-                improvements of web-app
+                List of potential improvements
               </h2>
               <ul className="list-disc list-outside space-y-2 ms-6">
                 {data.improvements.map((improvement, index) => (

@@ -5,7 +5,11 @@ import {
   useGetProjectsQuery,
 } from "@/api/queries/projects";
 import { ViewLayout } from "@/layout/view-layout";
-import { Header, HeaderTitle } from "@/shared/components/header";
+import {
+  Header,
+  HeaderSubtitle,
+  HeaderTitle,
+} from "@/shared/components/header";
 import { MainContent } from "@/shared/components/main-content";
 import { QueryClient } from "@tanstack/react-query";
 import { ProjectsCategory } from "./components/projects-category";
@@ -29,8 +33,9 @@ const Portfolio: React.FC<Props> = () => {
 
   return (
     <ViewLayout mode="primary">
-      <Header className="pt-28">
+      <Header className="pt-28 space-y-4">
         <HeaderTitle>Portfolio</HeaderTitle>
+        <HeaderSubtitle text="Turning complex requirements into clean, usable frontend experiences." />
       </Header>
       <MainContent>
         <div className="flex flex-col gap-40">
