@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
@@ -39,7 +40,7 @@ export default function Project() {
 
   return (
     <ViewLayout mode="primary">
-      <Header className="pt-28 pb-16">
+      <Header className="pt-28 pb-8 md:pb-16">
         <HeaderTitle>{data.title}</HeaderTitle>
         <div className="flex flex-wrap gap-2 md:gap-4 mt-8">
           {data.skills.map((skill, index) => (
@@ -62,6 +63,63 @@ export default function Project() {
         ) : (
           <EmblaCarousel slides={data.views} options={{ loop: true }} />
         )}
+        <div className="flex flex-col gap-8 md:gap-12">
+          {data.details && data.details.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-semibold text-secondary mb-4 md:mb-6">
+                Details of web-app
+              </h2>
+              <ul className="list-disc list-outside space-y-2 ms-6">
+                {data.details.map((detail, index) => (
+                  <li key={index} className="text-lg text-secondary/90">
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {data.technologies && data.technologies.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-semibold text-secondary mb-4 md:mb-6">
+                Technologies
+              </h2>
+              <ul className="list-disc list-outside space-y-2 ms-6">
+                {data.technologies.map((tech, index) => (
+                  <li key={index} className="text-lg text-secondary/90">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {data.improvements && data.improvements.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-semibold text-secondary mb-4 md:mb-6">
+                improvements of web-app
+              </h2>
+              <ul className="list-disc list-outside space-y-2 ms-6">
+                {data.improvements.map((improvement, index) => (
+                  <li key={index} className="text-lg text-secondary/90">
+                    {improvement.description
+                      ? improvement.description
+                      : improvement.improvement}
+                    {improvement.descriptionDetails &&
+                      improvement.descriptionDetails.length > 0 && (
+                        <ul className="list-[circle] list-outside ms-6">
+                          {improvement.descriptionDetails &&
+                            improvement.descriptionDetails.map(
+                              (detail, detailIndex) => (
+                                <li key={detailIndex}>{detail}</li>
+                              ),
+                            )}
+                        </ul>
+                      )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </MainContent>
     </ViewLayout>
   );

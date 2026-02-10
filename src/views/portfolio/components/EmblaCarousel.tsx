@@ -23,7 +23,7 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props;
-  console.log("slides", slides);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [isReady, setIsReady] = useState(false);
   const tweenFactor = useRef(0);
@@ -74,7 +74,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           }
 
           const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-          const scale = numberWithinRange(tweenValue, 0, 1).toString();
+          const scale = numberWithinRange(tweenValue, 0, 1);
           const tweenNode = tweenNodes.current[slideIndex];
           tweenNode.style.transform = `scale(${scale})`;
           tweenNode.style.opacity = `${scale * scale}`;
@@ -132,7 +132,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
-            // add title and make it scalable too
             <div
               className="relative basis-[85%] sm:basis-[55%] flex-shrink-0 flex-grow-0"
               key={slide.id}
