@@ -15,6 +15,7 @@ export default {
       white: "#FFFFFF",
       black: "#141213",
       cta: "#F3EBE3",
+      error: "#FF6B6B",
     },
     extend: {
       fontFamily: {
