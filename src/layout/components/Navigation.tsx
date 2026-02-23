@@ -40,7 +40,7 @@ export const Navigation: React.FC<Props> = () => {
           aria-label={isOpen ? "Close menu" : "Open menu"}
           className="lg:hidden flex flex-col justify-center gap-1.5 pr-6 text-secondary"
         >
-          <i className="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars text-2xl leading-none size-6"></i>
         </button>
       </div>
 

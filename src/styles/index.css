@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* scale active slide */
 .swiper-slide-active {
   transform: scale(1.15) !important;

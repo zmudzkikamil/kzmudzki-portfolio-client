@@ -1,5 +1,5 @@
 import { Variant } from "@/shared/types/Variant";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, ScrollRestoration, useLocation } from "react-router";
 import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
 import { classNames } from "@/utils/classNames";
@@ -23,6 +23,7 @@ export const Layout: React.FC = () => {
       <Navigation></Navigation>
       <Outlet />
       <Footer></Footer>
+      <ScrollRestoration />
     </div>
   );
 };
