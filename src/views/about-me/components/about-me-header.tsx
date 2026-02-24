@@ -19,7 +19,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
     <Header>
       {/* Tailwind arbitrary values used here because of specific shape of header. */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[480px] max-w-[1947px bg-cover bg-center"
+        className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[480px] max-w-[1947px] bg-cover bg-center"
         style={{ backgroundImage: `url(${wave})` }}
       ></div>
       <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-7 relative pt-20 pb-10 md:pb-16">

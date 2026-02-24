@@ -22,7 +22,7 @@ export const Navigation: React.FC<Props> = () => {
   }, [pathname]);
 
   return (
-    <nav className="fixed top-0 w-full bg-primary/70 backdrop-blur-sm z-50">
+    <nav className="fixed top-0 w-full max-w-[2040px] inset-x-0 mx-auto bg-primary/70 backdrop-blur-sm z-50">
       <div className="flex items-center justify-between h-20">
         <Logo />
 

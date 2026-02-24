@@ -9,7 +9,7 @@ export const Layout: React.FC = () => {
   const { pathname } = useLocation();
 
   const containerStyle = classNames({
-    "relative overflow-x-clip overflow-y-visible": true,
+    "relative overflow-x-clip overflow-y-visible min-h-screen": true,
     "bg-primary": !(
       pathname === paths["about-me"].path ||
       pathname === paths["digital-cv"].path

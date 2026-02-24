@@ -30,7 +30,7 @@ export const Footer: React.FC<Props> = () => {
     <Container>
       <footer className="[&>*]:z-10 h-[25rem] flex flex-col justify-end pb-10 text-secondary tracking-wide">
         <div
-          className="absolute left-1/2 bottom-0 -translate-x-1/2 scale-105 w-full h-full max-h-[360px] lg:max-h-[399px] max-w-[1947px] bg-cover bg-center"
+          className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full h-full max-h-[360px] lg:max-h-[399px] max-w-[1947px] bg-cover bg-center"
           style={{ backgroundImage: `url(${wave})` }}
         ></div>
         <div className="flex flex-col gap-6 sm:gap-12">
