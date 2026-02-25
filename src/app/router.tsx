@@ -2,7 +2,7 @@ import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { paths } from "@/config/paths";
-import { Layout } from "@/layout/layout";
+import { Layout } from "@/layout/Layout";
 
 const convert = (queryClient: QueryClient) => (m: any) => {
   const { clientLoader, clientAction, default: Component, ...rest } = m;
