@@ -7,6 +7,7 @@ import {
 } from "@/shared/components/header";
 import { useNavigate } from "react-router";
 import wave from "@/assets/wave-header.svg";
+import userImg from "@/assets/user.png";
 interface Props {}
 
 export const AboutMeHeader: React.FC<Props> = () => {
@@ -47,7 +48,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
           </div>
         </div>
         <img
-          src="src/assets/user.png"
+          src={userImg}
           alt="user image"
           className="absolute hidden sm:block mt-20 right-0 top-10 md:top-4 max-h-[250px] md:max-h-[320px] lg:max-h-[350px]"
         />
