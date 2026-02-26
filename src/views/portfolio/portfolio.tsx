@@ -37,7 +37,7 @@ const Portfolio: React.FC<Props> = () => {
         <HeaderTitle>Portfolio</HeaderTitle>
         <HeaderSubtitle text="Turning complex requirements into clean, usable frontend experiences." />
       </Header>
-      <MainContent>
+      <MainContent className="my-16">
         <div className="flex flex-col gap-40">
           {data.map((category) => (
             <ProjectsCategory
