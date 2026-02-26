@@ -1,3 +1,5 @@
+import deloitteLogo from "@/assets/Deloitte.svg";
+import fujitsuLogo from "@/assets/fujitsu.png";
 import { CompanyName } from "@/api/types/experience";
 
 interface Props {
@@ -8,13 +10,10 @@ export const CompanyLogo: React.FC<Props> = ({ companyName }) => {
   const renderLogo = (companyName: CompanyName) => {
     switch (companyName) {
       case "Deloitte":
-        return <img src="/src/assets/deloitte.svg" alt="Deloitte logo" />;
+        return <img src={deloitteLogo} alt="Deloitte logo" />;
       case "Fujitsu Technology Solutions":
         return (
-          <img
-            src="/src/assets/fujitsu.png"
-            alt="Fujitsu Technology Solutions logo"
-          />
+          <img src={fujitsuLogo} alt="Fujitsu Technology Solutions logo" />
         );
       case "Freelancer Web Development":
         return (
