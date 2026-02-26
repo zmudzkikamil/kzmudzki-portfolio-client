@@ -29,10 +29,11 @@ export const Footer: React.FC<Props> = () => {
     // {/* Tailwind arbitrary values used here because of specific shape of header. */}
     <Container>
       <footer className="[&>*]:z-10 h-[25rem] flex flex-col justify-end pb-10 text-secondary tracking-wide">
-        <div
-          className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full h-full max-h-[360px] lg:max-h-[399px] max-w-[1947px] bg-cover bg-center"
-          style={{ backgroundImage: `url(${wave})` }}
-        ></div>
+        <img
+          src={wave}
+          alt=""
+          className="absolute left-1/2 bottom-0 -translate-x-1/2 w-full h-full max-h-[360px] lg:max-h-[399px] max-w-[1947px] object-cover object-center scale-105"
+        />
         <div className="flex flex-col gap-6 sm:gap-12">
           <Title title="Get in touch" />
           <p className="lg:text-2xl text-lg font-light max-w-[75%]">
