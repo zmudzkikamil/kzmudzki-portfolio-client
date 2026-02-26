@@ -24,8 +24,13 @@ export const Position: React.FC<Props> = ({
           </>
         )}
       </div>
-      <div key={position.id} className="col-start-2 mb-10 flex flex-col gap-3">
-        <h3 className="font-bold text-xl leading-none">{position.title}</h3>
+      <div
+        key={position.id}
+        className="col-start-2 mb-6 sm:mb-10 flex flex-col gap-3"
+      >
+        <h3 className="font-bold text-lg sm:text-xl leading-none">
+          {position.title}
+        </h3>
         <p className="text-base text-black/70">{position.period}</p>
         <div className="flex flex-wrap gap-4">
           {position.skills.map((skill, index) => (

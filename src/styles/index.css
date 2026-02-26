@@ -34,7 +34,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  width: 100%;
   aspect-ratio: 4/3;
   user-select: none;
   object-fit: cover;

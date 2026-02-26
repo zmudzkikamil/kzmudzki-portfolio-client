@@ -12,11 +12,11 @@ export const AboutMeItem: React.FC<Props> = ({ item }) => {
         {item.year}
       </p>
       <div className="flex flex-col items-center">
-        <Icon iconClassName={item.icon} variant="primary" />
-        <div className="h-full w-2 bg-primary"></div>
+        <Icon iconClassName={item.icon} variant="primary" size="small" />
+        <div className="h-full w-1 sm:w-2 bg-primary"></div>
       </div>
       <div className="flex flex-col self-start gap-3 sm:gap-5">
-        <h2 className="font-bold pt-10 leading-none">{item.title}</h2>
+        <h2 className="font-bold pt-8 sm:pt-10 leading-none">{item.title}</h2>
         <p className="pb-12 sm:pb-14">{item.description}</p>
       </div>
     </>

@@ -34,9 +34,9 @@ const AboutMe: React.FC<Props> = () => {
             <AboutMeItem key={item.id} item={item} />
           ))}
           <div className=" sm:col-start-2">
-            <Icon variant="primary" />
+            <Icon variant="primary" size="small" />
           </div>
-          <h2 className="sm:col-start-3 font-bold pt-10 leading-none">
+          <h2 className="sm:col-start-3 font-bold pt-8 sm:pt-10 leading-none">
             Code the future of your company with me!
           </h2>
         </div>

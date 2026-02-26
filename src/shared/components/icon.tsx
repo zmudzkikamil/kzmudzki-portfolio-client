@@ -4,7 +4,7 @@ import { Variant } from "../types/Variant";
 interface Props {
   iconClassName?: string;
   variant: Exclude<Variant, "grey" | "cta">;
-  size?: "default" | "large";
+  size?: "small" | "default" | "large";
 }
 
 export const Icon: React.FC<Props> = ({
@@ -13,6 +13,8 @@ export const Icon: React.FC<Props> = ({
   size = "default",
 }) => {
   const iconSize = {
+    small:
+      "size-16 text-[1.75rem] leading-none sm:size-20 sm:text-[2.625rem] leading-none",
     default: "size-20 text-[2.625rem] leading-none",
     large: "size-24 text-[3rem] leading-none",
   };

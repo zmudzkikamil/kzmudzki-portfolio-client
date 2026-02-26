@@ -3,5 +3,7 @@ interface Props {
 }
 
 export const MainContent: React.FC<Props> = ({ children }) => {
-  return <main className="flex flex-col gap-24 my-28">{children}</main>;
+  return (
+    <main className="flex flex-col gap-16 sm:gap-24 my-28">{children}</main>
+  );
 };

@@ -17,13 +17,17 @@ export const CompanyLogo: React.FC<Props> = ({ companyName }) => {
           />
         );
       case "Freelancer Web Development":
-        return <span className="font-zendots text-2xl text-white">ZK</span>;
+        return (
+          <span className="font-zendots text-xl sm:text-2xl text-white">
+            ZK
+          </span>
+        );
       default:
         return null;
     }
   };
   return (
-    <div className="flex items-center justify-center size-16 bg-primary rounded col-start-1">
+    <div className="flex items-center justify-center size-12 sm:size-16 bg-primary rounded col-start-1">
       {renderLogo(companyName)}
     </div>
   );
