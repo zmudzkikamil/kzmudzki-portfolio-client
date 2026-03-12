@@ -3,16 +3,15 @@ import {
   HeaderSubtitle,
   HeaderTitle,
 } from "@/shared/components/header";
-import wave from "@/assets/wave-small.svg";
+import WaveSvg from "@/assets/wave-small.svg?react";
 interface Props {}
 
 export const CvHeader: React.FC<Props> = () => {
   return (
     <Header>
-      <img
-        src={wave}
-        alt=""
-        className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[300px] lg:max-h-[370px] max-w-[1947px] object-cover object-center"
+      <WaveSvg
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[300px] lg:max-h-[370px] max-w-[1947px]"
       />
       <div className="flex flex-col items-center sm:items-start gap-5 lg:gap-8 relative pt-20 pb-10 md:pb-16">
         <HeaderTitle>
