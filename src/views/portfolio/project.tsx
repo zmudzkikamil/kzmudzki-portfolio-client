@@ -41,7 +41,7 @@ export default function Project() {
   return (
     <ViewLayout mode="primary">
       <Header className="pt-28 pb-8 md:pb-16">
-        <HeaderTitle>{data.title}</HeaderTitle>
+        <HeaderTitle text={data.title} />
         <div className="flex flex-wrap justify-center sm:justify-start gap-2 md:gap-4 mt-8">
           {data.skills.map((skill, index) => (
             <Badge label={skill} variant="secondary" key={skill + index} />

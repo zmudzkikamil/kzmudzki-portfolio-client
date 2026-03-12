@@ -34,7 +34,7 @@ const Portfolio: React.FC<Props> = () => {
   return (
     <ViewLayout mode="primary">
       <Header className="pt-28 space-y-4">
-        <HeaderTitle>Portfolio</HeaderTitle>
+        <HeaderTitle text="Portfolio" />
         <HeaderSubtitle text="Turning complex requirements into clean, usable frontend experiences." />
       </Header>
       <MainContent className="my-16">

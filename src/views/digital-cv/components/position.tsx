@@ -1,5 +1,7 @@
+import { motion } from "motion/react";
 import { ExperiencePosition } from "@/api/types/experience";
 import { Badge } from "@/shared/components/badge/badge";
+import { useAnimationReady } from "@/utils/useAnimationReady";
 
 interface Props {
   position: ExperiencePosition;
@@ -12,21 +14,43 @@ export const Position: React.FC<Props> = ({
   index,
   positionsLength,
 }) => {
+  const delay = index * 0.15;
+  const ready = useAnimationReady();
+
   return (
     <>
       <div className="flex flex-col items-center">
         {positionsLength > 1 && (
           <>
-            <div className="flex items-center size-4 rounded-full bg-primary shrink-0"></div>
+            <motion.div
+              className="flex items-center size-4 rounded-full bg-primary shrink-0"
+              initial={{ scale: 0 }}
+              whileInView={ready ? { scale: 1 } : undefined}
+              viewport={{ once: true }}
+              transition={{ duration: 0.25, ease: "easeOut", delay }}
+            />
             {index < positionsLength - 1 && (
-              <div className="h-full w-1 bg-primary my-0.5"></div>
+              <motion.div
+                className="h-full w-1 bg-primary my-0.5 origin-top"
+                initial={{ scaleY: 0 }}
+                whileInView={ready ? { scaleY: 1 } : undefined}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: delay + 0.2,
+                }}
+              />
             )}
           </>
         )}
       </div>
-      <div
-        key={position.id}
+      <motion.div
         className="col-start-2 mb-6 sm:mb-10 flex flex-col gap-3"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={ready ? { opacity: 1, y: 0 } : undefined}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, ease: "easeOut", delay }}
       >
         <h3 className="font-bold text-lg sm:text-xl leading-none">
           {position.title}
@@ -38,7 +62,7 @@ export const Position: React.FC<Props> = ({
           ))}
         </div>
         <p>{position.description}</p>
-      </div>
+      </motion.div>
     </>
   );
 };

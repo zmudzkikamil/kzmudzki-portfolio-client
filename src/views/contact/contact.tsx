@@ -13,7 +13,7 @@ const Contact: React.FC<Props> = () => {
   return (
     <ViewLayout mode="primary">
       <Header className="pt-28 space-y-4">
-        <HeaderTitle>Get in touch</HeaderTitle>
+        <HeaderTitle text="Get in touch" />
         <HeaderSubtitle text="Have a project in mind or just want to say hello? Drop me a message." />
       </Header>
       <main className="mt-10 pb-16">

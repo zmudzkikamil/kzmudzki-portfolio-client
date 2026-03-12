@@ -30,8 +30,8 @@ const AboutMe: React.FC<Props> = () => {
       <MainContent>
         <Title title="About me" />
         <div className="grid grid-cols-[auto,1fr] sm:grid-cols-[auto,auto,1fr] gap-x-4 md:gap-x-8 xl:gap-x-10 text-base sm:text-xl">
-          {data.map((item) => (
-            <AboutMeItem key={item.id} item={item} />
+          {data.map((item, index) => (
+            <AboutMeItem key={item.id} item={item} index={index} />
           ))}
           <div className=" sm:col-start-2">
             <Icon variant="primary" size="small" />
