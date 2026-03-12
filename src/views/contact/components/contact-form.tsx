@@ -22,6 +22,7 @@ export const ContactForm: React.FC = () => {
 
   const {
     mutate,
+    reset: resetMutation,
     isPending,
     isSuccess,
     error: mutationError,
@@ -48,7 +49,10 @@ export const ContactForm: React.FC = () => {
           Thank you for reaching out. I'll get back to you soon.
         </p>
         <button
-          onClick={() => reset()}
+          onClick={() => {
+            reset();
+            resetMutation();
+          }}
           className="mt-4 text-sm underline text-secondary/60 hover:text-secondary transition-colors"
         >
           Send another message
