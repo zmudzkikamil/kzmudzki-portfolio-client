@@ -1,6 +1,11 @@
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { getAboutMeOptions } from "@/api/queries/about-me";
+import { getExperienceOptions } from "@/api/queries/experience";
+import { getKnowledgeOptions } from "@/api/queries/knowledge";
+import { getCertsOptions } from "@/api/queries/certs";
+import { categoryOrientedProjectsOptions } from "@/api/queries/projects";
 import { paths } from "@/config/paths";
 import { Layout } from "@/layout/Layout";
 
@@ -57,6 +62,28 @@ export const AppRouter = () => {
   const queryClient = useQueryClient();
 
   const router = useMemo(() => createAppRouter(queryClient), [queryClient]);
+
+  useEffect(() => {
+    const prefetch = () => {
+      queryClient.prefetchQuery(getAboutMeOptions());
+      queryClient.prefetchQuery(getExperienceOptions());
+      queryClient.prefetchQuery(getKnowledgeOptions());
+      queryClient.prefetchQuery(getCertsOptions());
+      queryClient.prefetchQuery(categoryOrientedProjectsOptions());
+
+      import("../views/about-me/about-me");
+      import("../views/digital-cv/digital-cv");
+      import("../views/portfolio/portfolio");
+      import("../views/portfolio/project");
+      import("../views/contact/contact");
+    };
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(prefetch);
+    } else {
+      setTimeout(prefetch, 1);
+    }
+  }, [queryClient]);
 
   return <RouterProvider router={router} />;
 };
