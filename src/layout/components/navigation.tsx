@@ -38,7 +38,7 @@ export const Navigation: React.FC<Props> = () => {
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
-          className="lg:hidden flex flex-col justify-center gap-1.5 pr-6 text-secondary"
+          className="lg:hidden flex flex-col justify-center gap-1.5 p-6 text-secondary"
         >
           <i className="fa-solid fa-bars text-2xl leading-none size-6"></i>
         </button>
