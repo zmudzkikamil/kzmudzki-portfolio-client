@@ -1,14 +1,24 @@
+import { motion } from "motion/react";
 import { ExperienceCompany } from "@/api/types/experience";
 import { CompanyLogo } from "./company-logo";
 import { Position } from "./position";
+import { useAnimationReady } from "@/utils/useAnimationReady";
 
 interface Props {
   company: ExperienceCompany;
 }
 
 export const Company: React.FC<Props> = ({ company }) => {
+  const ready = useAnimationReady();
+
   return (
-    <div className="grid grid-cols-[auto,1fr] gap-x-4 md:gap-x-8 text-base sm:text-xl">
+    <motion.div
+      className="grid grid-cols-[auto,1fr] gap-x-4 md:gap-x-8 text-base sm:text-xl"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={ready ? { opacity: 1, y: 0 } : undefined}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <CompanyLogo companyName={company.company} />
       <div className="mb-6 sm:mb-10">
         <h2 className="font-bold text-xl sm:text-3xl leading-none">
@@ -24,6 +34,6 @@ export const Company: React.FC<Props> = ({ company }) => {
           positionsLength={company.positions.length}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };

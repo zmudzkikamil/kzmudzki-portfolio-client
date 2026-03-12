@@ -24,10 +24,7 @@ export const AboutMeHeader: React.FC<Props> = () => {
         className="absolute left-1/2 -translate-x-1/2 scale-105 w-full h-full max-h-[480px] max-w-[1947px]"
       />
       <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-7 relative pt-20 pb-10 md:pb-16">
-        <HeaderTitle>
-          <span className="block leading-tight sm:leading-snug">Hello,</span>
-          <span className="block">I'm Kamil Żmudzki</span>
-        </HeaderTitle>
+        <HeaderTitle text={["Hello,", "I'm Kamil Żmudzki"]} />
         <HeaderSubtitle
           text="Software Engineer, Frontend Developer, AWS certified associate"
           className="lg:max-w-[450px] max-w-[350px]"
