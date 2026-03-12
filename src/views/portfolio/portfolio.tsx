@@ -1,5 +1,6 @@
 import {
   categoryOrientedProjectsOptions,
+  getProjectQueryOptions,
   projectsQueryOptions,
   useGetCategoryOrientedProjectsQuery,
   useGetProjectsQuery,
@@ -11,7 +12,8 @@ import {
   HeaderTitle,
 } from "@/shared/components/header";
 import { MainContent } from "@/shared/components/main-content";
-import { QueryClient } from "@tanstack/react-query";
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { ProjectsCategory } from "./components/projects-category";
 
 interface Props {}
@@ -27,6 +29,23 @@ export const clientLoader = (queryClient: QueryClient) => async () => {
 
 const Portfolio: React.FC<Props> = () => {
   const { data, isLoading } = useGetCategoryOrientedProjectsQuery();
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (!data) return;
+    const prefetch = () => {
+      data
+        .flatMap(({ projects }) => projects)
+        .forEach((project) => {
+          queryClient.prefetchQuery(getProjectQueryOptions(project.id));
+        });
+    };
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(prefetch);
+    } else {
+      setTimeout(prefetch, 1);
+    }
+  }, [data, queryClient]);
 
   if (isLoading) return <div>Loading...</div>;
   if (!data) return null;
