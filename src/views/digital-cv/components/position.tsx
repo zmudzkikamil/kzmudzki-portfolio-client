@@ -56,7 +56,7 @@ export const Position: React.FC<Props> = ({
           {position.title}
         </h3>
         <p className="text-base text-black/70">{position.period}</p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-x-3 gap-y-2 md:gap-x-4 md:gap-y-3">
           {position.skills.map((skill, index) => (
             <Badge key={index} label={skill} variant="grey" />
           ))}
