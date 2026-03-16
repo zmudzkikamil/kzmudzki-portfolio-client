@@ -34,8 +34,8 @@ off or have a suggestion, feel free to reach out via the
   <img src="https://github.com/user-attachments/assets/4bf4bf08-d1d8-47aa-b3aa-e8f81932898f" width="45%" />
 </p>
 
-> The UI/UX was designed entirely by me in **Figma** - not bad for a frontend
-> dev with no design background. 🙂
+> The UI/UX was designed entirely by me in **Figma**, despite being primarily a
+> frontend developer.
 
 ---
 
