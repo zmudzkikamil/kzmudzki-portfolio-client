@@ -8,7 +8,7 @@
 
 <p align="center"><em>Personal portfolio and digital CV built with React, TypeScript, and TanStack Query - connected to a NestJS + Supabase backend.</em></p>
 
-<p align="center">📄 <strong>Looking for my experience?</strong> &nbsp;<a href="https://zkamil.eu/cv"><strong>zkamil.eu/cv</strong></a> — full work history, skills, and education in one place.</p>
+<p align="center">📄 <strong>Looking for my experience?</strong> &nbsp;<a href="https://zkamil.eu/cv"><strong>zkamil.eu/cv</strong></a> - full work history, skills, and education in one place.</p>
 
 ---
 
@@ -65,6 +65,48 @@ off or have a suggestion, feel free to reach out via the
 > I know it. The stack was chosen intentionally for **learning purposes** -
 > getting hands-on experience with NestJS architecture and Supabase outside of
 > tutorial projects.
+
+---
+
+## Project Structure
+
+```
+src/
+├── api/
+│   ├── api.ts          # Axios instance (response interceptor unwraps .data)
+│   ├── services/       # Raw API call functions
+│   ├── queries/        # React Query hooks
+│   └── types/          # Domain types (api.d.ts generated, rest hand-written)
+├── app/                # Router, QueryClient provider, error boundary
+├── config/paths.ts     # Centralized route definitions
+├── layout/             # Shell, nav, footer
+├── shared/             # Reusable UI primitives, constants, enums
+├── utils/              # classNames helper, date formatting
+└── views/              # Page-level feature folders (portfolio, cv, about, contact)
+```
+
+---
+
+## Data Fetching & Caching
+
+All data is treated as static - fetched once per session and never re-fetched.
+React Query is configured globally with `staleTime: Infinity`, `retry: false`,
+and `refetchOnWindowFocus: false`. API types are generated from the backend's
+OpenAPI spec via `openapi-typescript`.
+
+---
+
+## API Endpoints
+
+| Method | Endpoint        | Used for                   |
+| ------ | --------------- | -------------------------- |
+| `GET`  | `/about-me`     | About me page              |
+| `GET`  | `/experience`   | Work experience (CV)       |
+| `GET`  | `/certs`        | Certificates (CV)          |
+| `GET`  | `/knowledge`    | Skills & technologies (CV) |
+| `GET`  | `/projects`     | Projects list              |
+| `GET`  | `/projects/:id` | Project detail             |
+| `POST` | `/contact`      | Contact form submission    |
 
 ---
 
