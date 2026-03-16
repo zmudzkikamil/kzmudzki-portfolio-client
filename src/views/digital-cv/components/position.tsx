@@ -61,7 +61,11 @@ export const Position: React.FC<Props> = ({
             <Badge key={index} label={skill} variant="grey" />
           ))}
         </div>
-        <p>{position.description}</p>
+        <div className="flex flex-col gap-2">
+          {position.description.split("\n\n").map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </div>
       </motion.div>
     </>
   );
