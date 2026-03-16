@@ -16,6 +16,7 @@ import { Section } from "@/shared/components/section";
 import { KnowledgeItem } from "./components/knowledge-item";
 import { getCertsOptions, useGetCertsQuery } from "@/api/queries/certs";
 import { Certification } from "./components/certification";
+import { ExperienceTimeline } from "./components/experience-timeline";
 
 interface Props {}
 
@@ -52,6 +53,7 @@ const DigitalCv: React.FC<Props> = () => {
       <MainContent>
         <Section id="experience">
           <Title title="Experience" />
+          <ExperienceTimeline companies={experience} />
           <div className="flex flex-col gap-8">
             {experience.map((company) => (
               <Company key={company.id} company={company} />

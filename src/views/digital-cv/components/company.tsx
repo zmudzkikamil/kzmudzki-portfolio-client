@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ExperienceCompany } from "@/api/types/experience";
 import { CompanyLogo } from "./company-logo";
 import { Position } from "./position";
+import { slugify } from "@/utils/slugify";
 import { useAnimationReady } from "@/utils/useAnimationReady";
 
 interface Props {
@@ -13,7 +14,8 @@ export const Company: React.FC<Props> = ({ company }) => {
 
   return (
     <motion.div
-      className="grid grid-cols-[auto,1fr] gap-x-4 md:gap-x-8 text-base sm:text-xl"
+      id={slugify(company.company)}
+      className="grid grid-cols-[auto,1fr] gap-x-4 md:gap-x-8 text-base sm:text-xl scroll-mt-28"
       initial={{ opacity: 0, y: 20 }}
       whileInView={ready ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.1 }}
