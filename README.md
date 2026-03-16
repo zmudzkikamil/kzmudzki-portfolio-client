@@ -53,7 +53,7 @@ off or have a suggestion, feel free to reach out via the
 | Tests           | Vitest + Testing Library        |
 | Type generation | openapi-typescript              |
 
-### Backend ([separate repo](https://github.com/kzmudzki/kzmudzki-portfolio-server))
+### Backend ([separate repo](https://github.com/zmudzkikamil/kzmudzki-portfolio-server))
 
 | Layer           | Technology            |
 | --------------- | --------------------- |
