@@ -1,5 +1,5 @@
 import { paths } from "@/config/paths";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { Logo } from "./logo";
 import { NavItem } from "./nav-item";
@@ -16,13 +16,27 @@ interface Props {}
 export const Navigation: React.FC<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full  inset-x-0 mx-auto bg-primary/70 backdrop-blur-sm z-50">
+    <nav
+      ref={navRef}
+      className="fixed top-0 w-full  inset-x-0 mx-auto bg-primary/70 backdrop-blur-sm z-50"
+    >
       <div className="flex items-center justify-between h-20 max-w-[2040px] mx-auto">
         <Logo />
 
