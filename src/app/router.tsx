@@ -1,13 +1,16 @@
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { getAboutMeOptions } from "@/api/queries/about-me";
 import { getExperienceOptions } from "@/api/queries/experience";
 import { getKnowledgeOptions } from "@/api/queries/knowledge";
 import { getCertsOptions } from "@/api/queries/certs";
 import { categoryOrientedProjectsOptions } from "@/api/queries/projects";
 import { paths } from "@/config/paths";
 import { Layout } from "@/layout/Layout";
+import AboutMe, {
+  clientLoader as aboutMeLoader,
+} from "../views/about-me/about-me";
+import { getAboutMeOptions } from "@/api/queries/about-me";
 
 const convert = (queryClient: QueryClient) => (m: any) => {
   const { clientLoader, clientAction, default: Component, ...rest } = m;
@@ -27,8 +30,8 @@ export const createAppRouter = (queryClient: QueryClient) =>
         {
           path: paths["about-me"].path,
           index: true,
-          lazy: () =>
-            import("../views/about-me/about-me").then(convert(queryClient)),
+          loader: aboutMeLoader(queryClient),
+          Component: AboutMe,
         },
         {
           path: paths["digital-cv"].path,
@@ -71,7 +74,6 @@ export const AppRouter = () => {
       queryClient.prefetchQuery(getCertsOptions());
       queryClient.prefetchQuery(categoryOrientedProjectsOptions());
 
-      import("../views/about-me/about-me");
       import("../views/digital-cv/digital-cv");
       import("../views/portfolio/portfolio");
       import("../views/portfolio/project");
