@@ -5,34 +5,34 @@ import { ServiceCard } from "./service-card";
 const services = [
   {
     icon: "fa-solid fa-house",
-    title: "Real Estate Photography",
+    title: "Fotografia Nieruchomości",
     description:
-      "Stunning aerial shots that showcase properties from every angle. Ideal for listings, marketing materials, and architectural documentation.",
+      "Spektakularne ujęcia z powietrza prezentujące nieruchomości z każdej strony. Idealne do ofert, materiałów marketingowych i dokumentacji architektonicznej.",
   },
   {
     icon: "fa-solid fa-video",
-    title: "Real Estate Videography",
+    title: "Wideo Nieruchomości",
     description:
-      "Cinematic drone footage that brings properties to life. Smooth flyovers, orbit shots, and reveal sequences tailored for video tours.",
+      "Filmowe nagrania dronem, które ożywiają nieruchomości. Płynne przeloty, ujęcia orbitalne i sekwencje odkrycia dostosowane do wirtualnych wycieczek.",
   },
   {
     icon: "fa-solid fa-store",
-    title: "Commercial Photography",
+    title: "Fotografia Komercyjna",
     description:
-      "Eye-catching aerial content for small businesses, storefronts, and entrepreneurs looking to elevate their brand presence.",
+      "Przyciągające wzrok ujęcia z powietrza dla małych firm, lokali i przedsiębiorców chcących wyróżnić swoją markę.",
   },
   {
     icon: "fa-solid fa-camera",
-    title: "Events & Other",
+    title: "Wydarzenia i Inne",
     description:
-      "Unique bird's-eye perspectives for outdoor events, land surveys, progress documentation, and any project that benefits from an aerial viewpoint.",
+      "Unikalne perspektywy z lotu ptaka dla plenerowych wydarzeń, pomiarów terenu, dokumentacji postępu prac i każdego projektu, który zyska na widoku z powietrza.",
   },
 ];
 
 export const ServicesSection: React.FC = () => {
   return (
     <Section id="services">
-      <Title title="Services" />
+      <Title title="Usługi" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {services.map((service) => (
           <ServiceCard key={service.title} {...service} />

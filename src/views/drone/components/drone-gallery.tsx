@@ -7,7 +7,7 @@ export const DroneGallery: React.FC = () => {
 
   return (
     <Section id="gallery">
-      <Title title="Gallery" />
+      <Title title="Galeria" />
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
         {dronePhotos.map((photo) => (
           <div key={photo.id} className="break-inside-avoid mb-4">

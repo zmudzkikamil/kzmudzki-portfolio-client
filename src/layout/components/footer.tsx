@@ -66,7 +66,7 @@ export const Footer: React.FC<Props> = () => {
                 className="text-grey text-sm hover:text-secondary transition-colors"
               >
                 <i className="fa-solid fa-camera mr-2" />
-                Drone Photography & Videography
+                Fotografia i Wideo Dronem
               </Link>
             </div>
           </div>

@@ -2,27 +2,27 @@ import { Section } from "@/shared/components/section";
 import { Title } from "@/shared/components/title";
 
 const equipment = [
-  { icon: "fa-solid fa-camera", label: "DJI — [model & camera specs]" },
+  { icon: "fa-solid fa-camera", label: "DJI — [model i specyfikacja kamery]" },
   {
     icon: "fa-solid fa-certificate",
-    label: "Licensed UAV operator — [license type / number]",
+    label: "Licencjonowany operator BSP — [typ licencji / numer]",
   },
   {
     icon: "fa-solid fa-location-dot",
-    label: "Operating in [your region / area]",
+    label: "Działam na terenie [Twój region / obszar]",
   },
 ];
 
 export const DroneAbout: React.FC = () => {
   return (
     <Section id="about">
-      <Title title="About & Equipment" />
+      <Title title="O mnie i sprzęt" />
       <div className="flex flex-col gap-8 text-secondary">
         <p className="lg:text-xl text-lg font-light leading-relaxed max-w-2xl">
-          Based in [your location], I offer professional aerial photography and
-          videography using high-end drone equipment. Every flight is planned
-          meticulously to capture the best angles and deliver results that make
-          your project stand out.
+          Działam z [Twoja lokalizacja] i oferuję profesjonalną fotografię oraz
+          wideo dronem przy użyciu sprzętu najwyższej klasy. Każdy lot jest
+          starannie zaplanowany, aby uchwycić najlepsze ujęcia i dostarczyć
+          efekty, które wyróżnią Twój projekt.
         </p>
         <ul className="flex flex-col gap-4">
           {equipment.map(({ icon, label }) => (
