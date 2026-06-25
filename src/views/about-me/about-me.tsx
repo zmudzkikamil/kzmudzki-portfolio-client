@@ -50,14 +50,14 @@ const AboutMe: React.FC<Props> = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 flex-1">
             <div>
               <p className="text-primary font-bold text-lg leading-tight">
-                Fotografia Lotnicza i Wideo Dronem
+                Aerial Photography & Videography
               </p>
               <p className="text-primary/60 text-sm">
-                Nieruchomości, komercja, wydarzenia
+                Real estate, commercial, events
               </p>
             </div>
             <span className="text-primary font-semibold text-sm shrink-0 group-hover:underline underline-offset-2">
-              Zobacz usługi →
+              View services →
             </span>
           </div>
         </Link>
