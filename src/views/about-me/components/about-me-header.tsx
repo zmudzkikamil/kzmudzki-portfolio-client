@@ -28,20 +28,10 @@ export const AboutMeHeader: React.FC<Props> = () => {
           className="lg:max-w-[450px] max-w-[350px]"
         />
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 xl:gap-12">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              label="Digital CV"
-              onClick={() => navigate(paths["digital-cv"].getHref())}
-            />
-            <Button
-              label="Portfolio"
-              onClick={() => navigate(paths.portfolio.getHref())}
-            />
-            <Button
-              label="Contact me"
-              onClick={() => navigate(paths.contact.getHref())}
-            />
-          </div>
+          <Button
+            label="Contact me"
+            onClick={() => navigate(paths.contact.getHref())}
+          />
           <div className="flex justify-center sm:justify-start gap-6 lg:gap-10 xl:gap-12">
             <LinkButton
               icon="fa-brands fa-github"
