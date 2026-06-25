@@ -8,6 +8,8 @@ import { AboutMeItem } from "./components/about-me-item";
 import { Icon } from "@/shared/components/icon";
 import { Link } from "react-router";
 import { paths } from "@/config/paths";
+import { motion } from "motion/react";
+import { useAnimationReady } from "@/utils/useAnimationReady";
 
 interface Props {}
 
@@ -22,6 +24,7 @@ export const clientLoader = (queryClient: QueryClient) => async () => {
 
 const AboutMe: React.FC<Props> = () => {
   const { data, isLoading } = useGetAboutMeQuery();
+  const ready = useAnimationReady();
 
   if (isLoading) return <div>Loading...</div>;
   if (!data) return null;
@@ -42,25 +45,31 @@ const AboutMe: React.FC<Props> = () => {
             Code the future of your company with me!
           </h2>
         </div>
-        <Link
-          to={paths.drone.getHref()}
-          className="flex items-center gap-4 bg-secondary-medium rounded-2xl p-5 sm:p-6 group transition-colors hover:bg-secondary-dark"
+        <motion.div
+          className="flex items-center justify-between gap-6 pt-6 border-t border-secondary-dark"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={ready ? { opacity: 1, y: 0 } : undefined}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          <i className="fa-solid fa-camera text-primary text-2xl shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 flex-1">
+          <div className="flex items-center gap-5">
+            <i className="fa-solid fa-file-lines text-primary text-2xl shrink-0" />
             <div>
               <p className="text-primary font-bold text-lg leading-tight">
-                Aerial Photography & Videography
+                Ready to see the full picture?
               </p>
               <p className="text-primary/60 text-sm">
-                Real estate, commercial, events
+                Work history, skills & certifications in one place
               </p>
             </div>
-            <span className="text-primary font-semibold text-sm shrink-0 group-hover:underline underline-offset-2">
-              View services →
-            </span>
           </div>
-        </Link>
+          <Link
+            to={paths["digital-cv"].getHref()}
+            className="text-primary font-semibold text-sm shrink-0 hover:underline underline-offset-2"
+          >
+            View Digital CV
+          </Link>
+        </motion.div>
       </MainContent>
     </ViewLayout>
   );
