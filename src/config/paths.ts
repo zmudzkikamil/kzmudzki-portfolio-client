@@ -19,4 +19,8 @@ export const paths = {
     path: "/contact",
     getHref: () => "/contact",
   },
+  drone: {
+    path: "/drone",
+    getHref: () => "/drone",
+  },
 } as const;
