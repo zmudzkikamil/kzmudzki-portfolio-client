@@ -5,6 +5,7 @@ import {
   HeaderSubtitle,
   HeaderTitle,
 } from "@/shared/components/header";
+import { paths } from "@/config/paths";
 import { useNavigate } from "react-router";
 import WaveSvg from "@/assets/wave-header.svg?react";
 import userImg from "@/assets/user.png";
@@ -13,9 +14,6 @@ interface Props {}
 export const AboutMeHeader: React.FC<Props> = () => {
   const navigate = useNavigate();
 
-  const onClick = () => {
-    navigate("/contact");
-  };
   return (
     <Header>
       {/* Tailwind arbitrary values used here because of specific shape of header. */}
@@ -30,7 +28,20 @@ export const AboutMeHeader: React.FC<Props> = () => {
           className="lg:max-w-[450px] max-w-[350px]"
         />
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 xl:gap-12">
-          <Button label="Contact me" onClick={onClick} />
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              label="Digital CV"
+              onClick={() => navigate(paths["digital-cv"].getHref())}
+            />
+            <Button
+              label="Portfolio"
+              onClick={() => navigate(paths.portfolio.getHref())}
+            />
+            <Button
+              label="Contact me"
+              onClick={() => navigate(paths.contact.getHref())}
+            />
+          </div>
           <div className="flex justify-center sm:justify-start gap-6 lg:gap-10 xl:gap-12">
             <LinkButton
               icon="fa-brands fa-github"
