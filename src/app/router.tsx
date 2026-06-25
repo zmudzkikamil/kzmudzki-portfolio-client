@@ -53,6 +53,10 @@ export const createAppRouter = (queryClient: QueryClient) =>
           lazy: () =>
             import("../views/contact/contact").then(convert(queryClient)),
         },
+        {
+          path: paths.drone.path,
+          lazy: () => import("../views/drone/drone").then(convert(queryClient)),
+        },
       ],
     },
     {
@@ -78,6 +82,7 @@ export const AppRouter = () => {
       import("../views/portfolio/portfolio");
       import("../views/portfolio/project");
       import("../views/contact/contact");
+      import("../views/drone/drone");
     };
 
     if ("requestIdleCallback" in window) {

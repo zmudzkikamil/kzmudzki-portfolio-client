@@ -6,6 +6,8 @@ import { QueryClient } from "@tanstack/react-query";
 import { getAboutMeOptions, useGetAboutMeQuery } from "@/api/queries/about-me";
 import { AboutMeItem } from "./components/about-me-item";
 import { Icon } from "@/shared/components/icon";
+import { Link } from "react-router";
+import { paths } from "@/config/paths";
 
 interface Props {}
 
@@ -40,6 +42,25 @@ const AboutMe: React.FC<Props> = () => {
             Code the future of your company with me!
           </h2>
         </div>
+        <Link
+          to={paths.drone.getHref()}
+          className="flex items-center gap-4 bg-secondary-medium rounded-2xl p-5 sm:p-6 group transition-colors hover:bg-secondary-dark"
+        >
+          <i className="fa-solid fa-camera text-primary text-2xl shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 flex-1">
+            <div>
+              <p className="text-primary font-bold text-lg leading-tight">
+                Aerial Photography & Videography
+              </p>
+              <p className="text-primary/60 text-sm">
+                Real estate, commercial, events
+              </p>
+            </div>
+            <span className="text-primary font-semibold text-sm shrink-0 group-hover:underline underline-offset-2">
+              View services →
+            </span>
+          </div>
+        </Link>
       </MainContent>
     </ViewLayout>
   );

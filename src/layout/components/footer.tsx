@@ -1,5 +1,5 @@
 import { paths } from "@/config/paths";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, Link } from "react-router";
 import { FooterSignature } from "./footer-signature";
 import { Title } from "@/shared/components/title";
 import { Container } from "@/shared/components/container";
@@ -59,7 +59,16 @@ export const Footer: React.FC<Props> = () => {
                 />
               </div>
             </div>
-            <FooterSignature />
+            <div className="flex flex-col gap-2">
+              <FooterSignature />
+              <Link
+                to={paths.drone.getHref()}
+                className="text-grey text-sm hover:text-secondary transition-colors"
+              >
+                <i className="fa-solid fa-camera mr-2" />
+                Drone Photography & Videography
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
