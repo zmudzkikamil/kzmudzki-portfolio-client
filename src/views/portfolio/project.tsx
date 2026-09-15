@@ -9,6 +9,7 @@ import { HeaderTitle } from "@/shared/components/header";
 import { MainContent } from "@/shared/components/main-content";
 import { Badge } from "@/shared/components/badge/badge";
 import EmblaCarousel from "./components/EmblaCarousel";
+import { ProjectLiveLink } from "./components/project-live-link";
 
 export function clientLoader(queryClient: QueryClient) {
   return async function loader({ params }: { params: { projectId?: string } }) {
@@ -47,6 +48,9 @@ export default function Project() {
             <Badge label={skill} variant="secondary" key={skill + index} />
           ))}
         </div>
+        {data.url && (
+          <ProjectLiveLink url={data.url} className="mt-12 sm:mt-16" />
+        )}
       </Header>
       <MainContent>
         {data.views.length === 1 || data.views.length === 2 ? (
