@@ -148,25 +148,41 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/contact": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["ContactController_submit"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
     AboutMe: {
-      id: string;
+      id: number;
       year: number;
       title: string;
       description: string;
       icon: string;
     };
     Experience: {
-      id: string;
+      id: number;
       company: string;
       period: string;
       positions: components["schemas"]["Position"][];
     };
     Position: {
-      id: string;
+      id: number;
       title: string;
       period: string;
       description: string;
@@ -174,7 +190,7 @@ export interface components {
       experience: components["schemas"]["Experience"];
     };
     Knowledge: {
-      id: string;
+      id: number;
       category: string;
       level: string;
       skills: string[];
@@ -231,6 +247,11 @@ export interface components {
        *     ]
        */
       technologies?: string[] | null;
+      /**
+       * @description Address of the live project, for the ones that are publicly available
+       * @example https://wloczkapisane.pl
+       */
+      url?: string | null;
       /** @description List of views related to the project */
       views: components["schemas"]["View"][];
       /** @description List of improvements suggested for the project */
@@ -246,9 +267,17 @@ export interface components {
       id: number;
       name: string;
       description: string;
-      dateIssued: number;
+      /** Format: date-time */
+      dateIssued: string;
       icon: string;
-      expirationDate?: number;
+      /** Format: date-time */
+      expirationDate?: string;
+    };
+    CreateContactDto: {
+      name: string;
+      /** Format: email */
+      email: string;
+      message: string;
     };
   };
   responses: never;
@@ -363,7 +392,7 @@ export interface operations {
       query?: never;
       header?: never;
       path: {
-        id: string;
+        id: number;
       };
       cookie?: never;
     };
@@ -435,6 +464,27 @@ export interface operations {
         content: {
           "application/json": components["schemas"]["Cert"][];
         };
+      };
+    };
+  };
+  ContactController_submit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateContactDto"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
     };
   };
