@@ -48,7 +48,9 @@ export default function Project() {
             <Badge label={skill} variant="secondary" key={skill + index} />
           ))}
         </div>
-        {data.url && <ProjectLiveLink url={data.url} className="mt-8" />}
+        {data.url && (
+          <ProjectLiveLink url={data.url} className="mt-12 sm:mt-16" />
+        )}
       </Header>
       <MainContent>
         {data.views.length === 1 || data.views.length === 2 ? (

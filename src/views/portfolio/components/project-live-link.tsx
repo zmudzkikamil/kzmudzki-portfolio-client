@@ -17,8 +17,7 @@ export const ProjectLiveLink: React.FC<Props> = ({ url, className }) => {
   return (
     <div
       className={classNames({
-        "flex flex-col sm:flex-row items-center sm:items-baseline gap-3 sm:gap-5":
-          true,
+        "flex flex-col items-center gap-3 sm:gap-5": true,
         [className as string]: !!className,
       })}
       data-testid="project-live-link"
