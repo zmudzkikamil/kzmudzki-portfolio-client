@@ -16,7 +16,7 @@ export const DroneHero: React.FC = () => {
   return (
     <Header className="pt-28">
       <div className="flex flex-col items-center sm:items-start gap-4 lg:gap-7 pb-10 md:pb-16 space-y-4">
-        <HeaderTitle text={["Fotografia Lotnicza", "i Wideo Dronem"]} />
+        <HeaderTitle text={["Drone Photography", "& Videography"]} />
         <HeaderSubtitle
           text="Profesjonalna fotografia i wideo dronem dla nieruchomości, klientów biznesowych i przedsiębiorców."
           className="lg:max-w-[520px] max-w-[380px]"
@@ -30,7 +30,7 @@ export const DroneHero: React.FC = () => {
             onClick={scrollToServices}
             className="text-secondary font-semibold underline underline-offset-4 hover:text-grey-light transition-colors"
           >
-            Zobacz usługi ↓
+            Zobacz usługi
           </button>
         </div>
       </div>
