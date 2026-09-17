@@ -2,14 +2,14 @@ import { Section } from "@/shared/components/section";
 import { Title } from "@/shared/components/title";
 
 const equipment = [
-  { icon: "fa-solid fa-camera", label: "DJI — [model i specyfikacja kamery]" },
+  { icon: "fa-solid fa-camera", label: "DJI — DJI Mini 4 Pro" },
   {
     icon: "fa-solid fa-certificate",
-    label: "Licencjonowany operator BSP — [typ licencji / numer]",
+    label: "Licencjonowany operator BSP",
   },
   {
     icon: "fa-solid fa-location-dot",
-    label: "Działam na terenie [Twój region / obszar]",
+    label: "Działam na terenie Łodzi i Poznania",
   },
 ];
 
@@ -19,7 +19,7 @@ export const DroneAbout: React.FC = () => {
       <Title title="O mnie i sprzęt" />
       <div className="flex flex-col gap-8 text-secondary">
         <p className="lg:text-xl text-lg font-light leading-relaxed max-w-2xl">
-          Działam z [Twoja lokalizacja] i oferuję profesjonalną fotografię oraz
+          Działam z Łodzi i Poznania i oferuję profesjonalną fotografię oraz
           wideo dronem przy użyciu sprzętu najwyższej klasy. Każdy lot jest
           starannie zaplanowany, aby uchwycić najlepsze ujęcia i dostarczyć
           efekty, które wyróżnią Twój projekt.
