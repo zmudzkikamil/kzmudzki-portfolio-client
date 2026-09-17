@@ -9,7 +9,7 @@ const Drone: React.FC = () => {
   return (
     <ViewLayout mode="primary">
       <DroneHero />
-      <MainContent>
+      <MainContent className="text-secondary">
         <ServicesSection />
         <DroneGallery />
         <DroneAbout />
