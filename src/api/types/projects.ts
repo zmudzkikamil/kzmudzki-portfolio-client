@@ -1,6 +1,6 @@
 import { components } from "./api";
 
-export type Category = "react" | "html";
+export type Category = "fullstack" | "react" | "html";
 
 export type DetailedProject = Omit<
   components["schemas"]["Project"],

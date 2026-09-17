@@ -9,6 +9,8 @@ interface Props {
 export const ProjectsCategory: React.FC<Props> = ({ projects, category }) => {
   const getCategoryTitle = (category: Category) => {
     switch (category) {
+      case "fullstack":
+        return "Full-Stack (Next.js)";
       case "react":
         return "React Projects";
       case "html":
